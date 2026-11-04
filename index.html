@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f0">
+  <meta name="description" content="EcoGRU — ideias sustentáveis para um futuro melhor.">
+  <title>EcoGRU | Um futuro mais sustentável</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #18352b;
+      --muted: #65756a;
+      --green: #2f704d;
+      --green-dark: #22563a;
+      --lime: #dce9b8;
+      --paper: #f5f7f0;
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-shell {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 82px;
+    }
+
+    .brand {
+      color: var(--green-dark);
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.06em;
+    }
+
+    .brand span {
+      color: #a4bb5e;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--green-dark);
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 570px;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 28px;
+      background:
+        radial-gradient(ellipse at 82% 18%, rgb(220 233 184 / 68%), transparent 29%),
+        radial-gradient(ellipse at 12% 90%, rgb(164 187 94 / 20%), transparent 34%),
+        linear-gradient(135deg, #e8efdb, #f8f8f1 62%);
+      text-align: center;
+    }
+
+    .hero::before,
+    .hero::after {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border: 1px solid rgb(47 112 77 / 12%);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero::before {
+      top: -115px;
+      left: -85px;
+    }
+
+    .hero::after {
+      right: -120px;
+      bottom: -135px;
+      width: 340px;
+      height: 340px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      padding: 64px 24px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      color: var(--green);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #91aa4d;
+      content: "";
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--green-dark);
+      font-size: clamp(4rem, 11vw, 7.5rem);
+      font-weight: 800;
+      letter-spacing: -0.09em;
+      line-height: 0.98;
+    }
+
+    h1 span {
+      color: #96ae54;
+    }
+
+    .hero-copy {
+      max-width: 510px;
+      margin: 24px auto 30px;
+      color: #506257;
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 999px;
+      background: var(--green-dark);
+      color: var(--white);
+      font-size: 0.92rem;
+      font-weight: 650;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      background: var(--green);
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-heading {
+      max-width: 600px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading .eyebrow {
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: -0.055em;
+      line-height: 1.12;
+    }
+
+    .section-heading p {
+      margin: 16px 0 0;
+      color: var(--muted);
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .value-card {
+      min-height: 205px;
+      padding: 26px;
+      border: 1px solid #e6e9df;
+      border-radius: 18px;
+      background: rgb(255 255 255 / 72%);
+    }
+
+    .value-icon {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 20px;
+      place-items: center;
+      border-radius: 13px;
+      background: #edf2df;
+      color: var(--green-dark);
+      font-size: 1.2rem;
+    }
+
+    .value-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+
+    .value-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .contact {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 34px;
+      border-radius: 20px;
+      background: var(--green-dark);
+      color: var(--white);
+    }
+
+    .contact h2 {
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+    }
+
+    .contact p {
+      margin: 8px 0 0;
+      color: #d5e0d4;
+    }
+
+    .contact .button {
+      flex: 0 0 auto;
+      background: var(--lime);
+      color: var(--green-dark);
+    }
+
+    .contact .button:hover,
+    .contact .button:focus-visible {
+      background: #e8f0d2;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 680px) {
+      .page-shell {
+        width: min(100% - 32px, 1120px);
+      }
+
+      header {
+        min-height: 70px;
+      }
+
+      nav {
+        gap: 16px;
+        font-size: 0.85rem;
+      }
+
+      .hero {
+        min-height: 480px;
+        border-radius: 22px;
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+
+      .values {
+        grid-template-columns: 1fr;
+      }
+
+      .value-card {
+        min-height: 0;
+      }
+
+      .contact {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 28px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header>
+      <a class="brand" href="#inicio" aria-label="EcoGRU, início">eco<span>GRU</span></a>
+      <nav aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#compromissos">Compromissos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio" aria-labelledby="titulo-principal">
+        <div class="hero-content">
+          <p class="eyebrow">Ideias para um amanhã melhor</p>
+          <h1 id="titulo-principal">Eco<span>GRU</span></h1>
+          <p class="hero-copy">
+            Cuidar do planeta começa com escolhas conscientes.
+            Juntos, podemos transformar o futuro em um lugar mais verde.
+          </p>
+          <a class="button" href="#sobre">Conheça a EcoGRU</a>
+        </div>
+      </section>
+
+      <section class="section" id="sobre" aria-labelledby="titulo-sobre">
+        <div class="section-heading">
+          <p class="eyebrow">Nosso propósito</p>
+          <h2 id="titulo-sobre">Pequenas atitudes. Grandes mudanças.</h2>
+          <p>
+            A EcoGRU acredita em um futuro mais equilibrado, construído com
+            responsabilidade, criatividade e respeito ao meio ambiente.
+          </p>
+        </div>
+
+        <div class="values" id="compromissos">
+          <article class="value-card">
+            <div class="value-icon" aria-hidden="true">⌁</div>
+            <h3>Consciência ambiental</h3>
+            <p>Valorizamos escolhas que respeitam os recursos naturais e o nosso entorno.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-icon" aria-hidden="true">✳</div>
+            <h3>Inovação sustentável</h3>
+            <p>Buscamos ideias criativas para tornar a sustentabilidade parte do dia a dia.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-icon" aria-hidden="true">↗</div>
+            <h3>Futuro compartilhado</h3>
+            <p>Acreditamos que a colaboração é o caminho para uma mudança duradoura.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact" id="contato" aria-labelledby="titulo-contato">
+        <div>
+          <h2 id="titulo-contato">Vamos fazer a diferença?</h2>
+          <p>Um futuro mais sustentável começa com uma boa conversa.</p>
+        </div>
+        <a class="button" href="mailto:contato@ecogru.com.br">Fale com a gente</a>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 EcoGRU. Todos os direitos reservados.</span>
+      <span>Um compromisso com o futuro do planeta.</span>
+    </footer>
+  </div>
+</body>
+</html>
